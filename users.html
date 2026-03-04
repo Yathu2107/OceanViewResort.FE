@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Management — OceanView Resort</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/shared.css" />
+</head>
+<body>
+<div class="app-layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-icon">🏨</div>
+      <div><div class="sidebar-brand-name">Ocean View</div><div class="sidebar-brand-sub">Resort Management</div></div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Main</div>
+      <a href="dashboard.html" class="nav-link" id="nav-dashboard"><span class="nav-link-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span>Dashboard</span></a>
+      <a href="guests.html" class="nav-link" id="nav-guests"><span class="nav-link-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span>Guests</span></a>
+      <a href="reservations.html" class="nav-link" id="nav-reservations"><span class="nav-link-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span>Reservations</span></a>
+      <a href="billing.html" class="nav-link" id="nav-billing"><span class="nav-link-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></span><span>Billing</span></a>
+      <a href="help.html" class="nav-link" id="nav-help"><span class="nav-link-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 4"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span><span>Help</span></a>
+      <div class="nav-section-label manager-only">Administration</div>
+      <a href="rooms.html" class="nav-link nav-link-admin manager-only" id="nav-rooms"><span class="nav-link-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span>Room Management</span><span class="nav-badge">Admin</span></a>
+      <a href="users.html" class="nav-link nav-link-admin manager-only" id="nav-users"><span class="nav-link-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span><span>User Management</span><span class="nav-badge">Admin</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="sidebar-avatar" id="userAvatar">U</div>
+        <div class="sidebar-user-info"><div class="sidebar-user-name" id="userName">Loading…</div><div class="sidebar-user-role" id="userRole"></div></div>
+      </div>
+      <button class="sidebar-logout-btn" onclick="logout()"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Sign Out</button>
+    </div>
+  </aside>
+  <main class="main-content">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-toggle" id="menuToggle"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        <div><h1 class="topbar-title">User Management</h1><p class="topbar-sub" id="todayDate"></p></div>
+      </div>
+      <div class="topbar-right"><div class="topbar-role-badge" id="roleBadge"></div></div>
+    </header>
+    <div class="content-body">
+      <div style="background:#fff8e6;border:1px solid #ffe099;border-radius:10px;padding:11px 18px;font-size:.82rem;color:#8a6000;margin-bottom:18px;display:flex;align-items:center;gap:8px;">
+        <span>⚡</span><span>Logged in as <strong id="meInfo">—</strong></span>
+      </div>
+      <div class="toolbar">
+        <button class="btn btn-primary" id="registerBtn">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Register User
+        </button>
+      </div>
+      <div class="table-wrap">
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>Name</th><th>Username</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="tableBody"><tr><td colspan="5"><div class="spinner-wrap"><div class="spinner"></div></div></td></tr></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="modal-overlay hidden" id="regModal">
+  <div class="modal">
+    <div class="modal-header"><h2>Register New User</h2><button class="modal-close" id="closeRegModal">&#x2715;</button></div>
+    <form id="regForm">
+      <div class="form-section">
+        <div class="form-row">
+          <div class="form-group"><label for="regName">Full Name</label><input type="text" id="regName" placeholder="e.g. Juan Dela Cruz" required /></div>
+          <div class="form-group"><label for="regUsername">Username</label><input type="text" id="regUsername" placeholder="e.g. jdelacruz" required /></div>
+        </div>
+        <div class="form-group"><label for="regPassword">Password</label><input type="password" id="regPassword" placeholder="Min. 6 characters" required /></div>
+        <div class="form-row">
+          <div class="form-group"><label for="regRole">Role</label><select id="regRole"><option value="STAFF">Staff</option><option value="MANAGER">Manager</option></select></div>
+          <div class="form-group">
+            <label>Account Status</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="regStatus" id="regActive" value="true" checked /><span>Active</span></label>
+              <label class="radio-option"><input type="radio" name="regStatus" id="regInactive" value="false" /><span>Inactive</span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" id="cancelRegModal">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="regSaveBtn">Register User</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay hidden" id="editModal">
+  <div class="modal">
+    <div class="modal-header"><h2>Edit User</h2><button class="modal-close" id="closeEditModal">&#x2715;</button></div>
+    <form id="editForm">
+      <div class="form-section">
+        <div class="form-group"><label for="editUsername">Username</label><input type="text" id="editUsername" disabled style="background:#f0f0f0;color:#888;cursor:not-allowed;" /></div>
+        <div class="form-group"><label for="editName">Full Name</label><input type="text" id="editName" required /></div>
+        <div class="form-group">
+          <label for="editPassword">New Password <span style="color:#bbb;font-weight:400;font-size:0.72rem;text-transform:none;letter-spacing:0">(leave blank to keep current)</span></label>
+          <input type="password" id="editPassword" placeholder="Enter new password to change…" />
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="editRole">Role</label><select id="editRole"><option value="STAFF">Staff</option><option value="MANAGER">Manager</option></select></div>
+          <div class="form-group">
+            <label>Account Status</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="editStatus" id="editActive" value="true" checked /><span>Active</span></label>
+              <label class="radio-option"><input type="radio" name="editStatus" id="editInactive" value="false" /><span>Inactive</span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" id="cancelEditModal">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="editSaveBtn">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/users.js"></script>
+<script>
+  const menuBtn=document.getElementById('menuToggle'),sidebar=document.getElementById('sidebar'),overlay=document.getElementById('sidebarOverlay');
+  menuBtn.addEventListener('click',()=>{sidebar.classList.toggle('open');overlay.classList.toggle('active');});
+  overlay.addEventListener('click',()=>{sidebar.classList.remove('open');overlay.classList.remove('active');});
+  document.getElementById('todayDate').textContent=new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  const roleBadgeEl=document.getElementById('roleBadge'),role=getRole();
+  if(roleBadgeEl&&role){roleBadgeEl.textContent=role.charAt(0)+role.slice(1).toLowerCase();roleBadgeEl.className='topbar-role-badge '+(role==='MANAGER'?'badge-manager':'badge-staff');}
+  const user=getUser(),avatarEl=document.getElementById('userAvatar');
+  if(avatarEl&&user&&user.name)avatarEl.textContent=user.name.charAt(0).toUpperCase();
+</script>
+</body>
+</html>

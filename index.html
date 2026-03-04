@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — OceanView Resort</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/auth.css" />
+</head>
+<body class="auth-body">
+
+  <div class="auth-split">
+
+    <!-- ── Left brand panel ───────────────────────── -->
+    <div class="auth-brand-panel">
+      <div class="auth-brand-inner">
+        <div class="auth-brand-icon">🏨</div>
+        <h1 class="auth-brand-name">Ocean View<br/>Resort</h1>
+        <p class="auth-brand-tagline">Premium Hospitality<br/>Management System</p>
+        <div class="auth-brand-dots">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <p class="auth-brand-footer">Ocean View Resort &copy; 2025 &mdash; All rights reserved</p>
+    </div>
+
+    <!-- ── Right login panel ─────────────────────── -->
+    <div class="auth-form-panel">
+      <div class="auth-form-inner">
+
+        <!-- Shown only on mobile -->
+        <div class="auth-mobile-brand">
+          <span>🏨</span>
+          <strong>OceanView Resort</strong>
+        </div>
+
+        <div class="auth-heading">
+          <h2>Welcome back</h2>
+          <p>Sign in to continue to your dashboard</p>
+        </div>
+
+        <!-- Error message -->
+        <div class="auth-error" id="errorMsg"></div>
+
+        <form id="loginForm" autocomplete="off" novalidate>
+
+          <!-- Username -->
+          <div class="auth-field">
+            <label for="username">Username</label>
+            <div class="auth-input-wrap">
+              <svg class="auth-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+              </svg>
+              <input type="text" id="username" name="username" placeholder="Enter your username" autocomplete="username" required />
+            </div>
+          </div>
+
+          <!-- Password -->
+          <div class="auth-field">
+            <label for="password">Password</label>
+            <div class="auth-input-wrap">
+              <svg class="auth-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required />
+              <button type="button" class="auth-eye-btn" id="togglePassword" tabindex="-1" aria-label="Show/hide password">
+                <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="auth-submit-btn" id="loginBtn">
+            <span>Sign In</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- config.js MUST be first -->
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    // Password show / hide toggle
+    document.getElementById("togglePassword").addEventListener("click", function () {
+      const pwd = document.getElementById("password");
+      const showing = pwd.type === "text";
+      pwd.type = showing ? "password" : "text";
+      document.getElementById("eyeIcon").innerHTML = showing
+        ? '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>'
+        : '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — OceanView Resort</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+<div class="app-layout">
+
+  <!-- ══════════════════════ SIDEBAR ══════════════════════ -->
+  <aside class="sidebar" id="sidebar">
+
+    <!-- Brand -->
+    <div class="sidebar-brand">
+      <div class="sidebar-brand-icon">🏨</div>
+      <div>
+        <div class="sidebar-brand-name">Ocean View</div>
+        <div class="sidebar-brand-sub">Resort Management</div>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Main</div>
+
+      <a href="dashboard.html" class="nav-link" id="nav-dashboard">
+        <span class="nav-link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
+            <rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/>
+          </svg>
+        </span>
+        <span>Dashboard</span>
+      </a>
+
+      <a href="guests.html" class="nav-link" id="nav-guests">
+        <span class="nav-link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+            <circle cx="19" cy="8" r="2"/><path d="M23 21v-2a3 3 0 0 0-2-2.83"/>
+          </svg>
+        </span>
+        <span>Guests</span>
+      </a>
+
+      <a href="reservations.html" class="nav-link" id="nav-reservations">
+        <span class="nav-link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+            <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
+          </svg>
+        </span>
+        <span>Reservations</span>
+      </a>
+
+      <a href="billing.html" class="nav-link" id="nav-billing">
+        <span class="nav-link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <line x1="2" y1="10" x2="22" y2="10"/>
+          </svg>
+        </span>
+        <span>Billing</span>
+      </a>
+
+      <a href="help.html" class="nav-link" id="nav-help">
+        <span class="nav-link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 4"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+        </span>
+        <span>Help</span>
+      </a>
+
+      <!-- Manager-only section -->
+      <div class="nav-section-label nav-section-admin manager-only">Administration</div>
+      <a href="rooms.html" class="nav-link nav-link-admin manager-only" id="nav-rooms">
+        <span class="nav-link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9V19a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9"/><path d="M3 9l9-6 9 6"/><path d="M9 14h6v6H9z"/>
+          </svg>
+        </span>
+        <span>Room Management</span>
+        <span class="nav-badge">Admin</span>
+      </a>
+      <a href="users.html" class="nav-link nav-link-admin manager-only" id="nav-users">
+        <span class="nav-link-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            <line x1="19" y1="8" x2="23" y2="8"/><line x1="21" y1="6" x2="21" y2="10"/>
+          </svg>
+        </span>
+        <span>User Management</span>
+        <span class="nav-badge">Admin</span>
+      </a>
+    </nav>
+
+    <!-- User / Logout -->
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="sidebar-avatar" id="userAvatar">U</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name" id="userName">Loading...</div>
+          <div class="sidebar-user-role" id="userRole"></div>
+        </div>
+      </div>
+      <button class="sidebar-logout-btn" onclick="logout()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        Sign Out
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- ══════════════════════ MAIN CONTENT ══════════════════ -->
+  <main class="main-content">
+
+    <!-- Top bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle sidebar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+        <div>
+          <h1 class="topbar-title">Dashboard</h1>
+          <p class="topbar-sub" id="todayDate"></p>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-role-badge" id="roleBadge"></div>
+      </div>
+    </header>
+
+    <div class="content-body">
+
+      <!-- ── Stat cards ──────────────────────────────────── -->
+      <div class="stats-grid">
+
+        <div class="stat-card">
+          <div class="stat-card-icon stat-icon-total">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9V19a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9"/><path d="M3 9l9-6 9 6"/><path d="M9 14h6v6H9z"/>
+            </svg>
+          </div>
+          <div class="stat-card-body">
+            <div class="stat-value" id="totalRooms">—</div>
+            <div class="stat-label">Total Rooms</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-icon stat-icon-available">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <div class="stat-card-body">
+            <div class="stat-value" id="availableRooms">—</div>
+            <div class="stat-label">Available</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-icon stat-icon-booked">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <div class="stat-card-body">
+            <div class="stat-value" id="totalRevenue">—</div>
+            <div class="stat-label">Total Revenue</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-icon stat-icon-maint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <div class="stat-card-body">
+            <div class="stat-value" id="maintenanceRooms">—</div>
+            <div class="stat-label">Maintenance</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── Charts row ──────────────────────────────────── -->
+      <div class="charts-row">
+
+        <!-- Room Status Distribution -->
+        <div class="panel panel-wide">
+          <div class="panel-header">
+            <div class="panel-title">Room Status Distribution</div>
+            <div class="panel-subtitle">Live breakdown by occupancy state</div>
+          </div>
+          <div class="panel-body">
+            <div class="distrib-bar-track">
+              <div class="distrib-segment seg-available" id="availBar" style="width:0%"></div>
+              <div class="distrib-segment seg-maint"     id="maintBar" style="width:0%"></div>
+            </div>
+            <div class="distrib-legend">
+              <div class="distrib-legend-item">
+                <span class="legend-pip pip-available"></span>
+                <span class="legend-name">Available</span>
+                <span class="legend-pct" id="availPct">—</span>
+              </div>
+              <div class="distrib-legend-item">
+                <span class="legend-pip pip-maint"></span>
+                <span class="legend-name">Maintenance</span>
+                <span class="legend-pct" id="maintPct">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Availability Rate Ring -->
+        <div class="panel panel-narrow">
+          <div class="panel-header">
+            <div class="panel-title">Availability Rate</div>
+            <div class="panel-subtitle">Current occupancy index</div>
+          </div>
+          <div class="panel-body rate-body">
+            <div class="rate-ring">
+              <svg class="rate-svg" viewBox="0 0 120 120">
+                <circle class="rate-track" cx="60" cy="60" r="48"/>
+                <circle class="rate-fill" id="rateArc" cx="60" cy="60" r="48" stroke-dasharray="0 302"/>
+              </svg>
+              <div class="rate-center">
+                <div class="rate-number" id="availRate">—</div>
+                <div class="rate-unit">% avail</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── Quick Navigation ────────────────────────────── -->
+      <div class="section-label">Quick Access</div>
+      <div class="quick-grid">
+
+        <a href="rooms.html" class="quick-card">
+          <div class="quick-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9V19a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9"/><path d="M3 9l9-6 9 6"/><path d="M9 14h6v6H9z"/>
+            </svg>
+          </div>
+          <div class="quick-name">Rooms</div>
+          <div class="quick-desc">Manage room inventory &amp; statuses</div>
+          <div class="quick-arrow">&#8594;</div>
+        </a>
+
+        <a href="guests.html" class="quick-card">
+          <div class="quick-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/>
+              <circle cx="19" cy="8" r="2"/><path d="M23 21v-2a3 3 0 0 0-2-2.83"/>
+            </svg>
+          </div>
+          <div class="quick-name">Guests</div>
+          <div class="quick-desc">Guest profiles &amp; contact info</div>
+          <div class="quick-arrow">&#8594;</div>
+        </a>
+
+        <a href="reservations.html" class="quick-card">
+          <div class="quick-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <div class="quick-name">Reservations</div>
+          <div class="quick-desc">Check-ins, check-outs &amp; bookings</div>
+          <div class="quick-arrow">&#8594;</div>
+        </a>
+
+        <a href="billing.html" class="quick-card">
+          <div class="quick-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>
+            </svg>
+          </div>
+          <div class="quick-name">Billing</div>
+          <div class="quick-desc">Generate bills &amp; receipts</div>
+          <div class="quick-arrow">&#8594;</div>
+        </a>
+
+        <a href="users.html" class="quick-card quick-card-admin manager-only">
+          <div class="quick-icon quick-icon-admin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+              <line x1="19" y1="8" x2="23" y2="8"/><line x1="21" y1="6" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <div class="quick-name">User Management</div>
+          <div class="quick-desc">Register &amp; manage staff accounts</div>
+          <div class="quick-arrow">&#8594;</div>
+        </a>
+
+      </div>
+
+    </div><!-- /content-body -->
+  </main>
+
+</div><!-- /app-layout -->
+
+<!-- Mobile sidebar overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<script src="js/config.js"></script>
+<script src="js/dashboard.js"></script>
+<script>
+  // Mobile sidebar toggle
+  const menuBtn = document.getElementById("menuToggle");
+  const sidebar  = document.getElementById("sidebar");
+  const overlay  = document.getElementById("sidebarOverlay");
+  menuBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+    overlay.classList.toggle("active");
+  });
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("active");
+  });
+
+  // Today's date in topbar
+  document.getElementById("todayDate").textContent =
+    new Date().toLocaleDateString("en-US", { weekday:"long", year:"numeric", month:"long", day:"numeric" });
+
+  // Role badge color
+  const roleBadgeEl = document.getElementById("roleBadge");
+  const role = getRole();
+  if (roleBadgeEl && role) {
+    roleBadgeEl.textContent = role.charAt(0) + role.slice(1).toLowerCase();
+    roleBadgeEl.className = "topbar-role-badge " + (role === "MANAGER" ? "badge-manager" : "badge-staff");
+  }
+
+  // Avatar initial from user name
+  const user = getUser();
+  const avatarEl = document.getElementById("userAvatar");
+  if (avatarEl && user.name) avatarEl.textContent = user.name.charAt(0).toUpperCase();
+</script>
+</body>
+</html>
