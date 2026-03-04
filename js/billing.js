@@ -221,7 +221,6 @@ function closeCheckoutModal() {
 
 document.getElementById("checkoutBtn").addEventListener("click", openCheckoutModal);
 document.getElementById("closeCheckoutModal").addEventListener("click", closeCheckoutModal);
-document.getElementById("cancelCheckoutModal").addEventListener("click", closeCheckoutModal);
 document.getElementById("checkoutModal").addEventListener("click", function (e) {
   if (e.target === this) closeCheckoutModal();
 });

@@ -435,10 +435,11 @@ document.getElementById("addConfirmBtn").addEventListener("click", async () => {
   btn.disabled = true; btn.textContent = "Creating…";
 
   try {
+    const guestId = addWizard.guest.guestId ?? addWizard.guest.id;
     const res  = await authFetch(API.RESERVATIONS, {
       method: "POST",
       body:   JSON.stringify({
-        guestId:     addWizard.guest.id,
+        guestId,
         roomIds:     [...addWizard.selectedIds],
         checkInDate:  addWizard.checkIn,
         checkOutDate: addWizard.checkOut
